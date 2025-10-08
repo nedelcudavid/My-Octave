@@ -2,52 +2,39 @@
 ## Copyright 2022 Nedelcu Andrei-David
 ___________________________________________________________________________________________
 
-### Algoritmul Iterative
- Functia reprezinta o implementare a algoritmului Iterative, aceasta primeste 
-ca argumente: numele fisierului de unde preluam graful, coeficientul d si
-eroarea. Functia intoarce apoi vectorul P.
+### Iterative Algorithm
+The function represents an implementation of the Iterative algorithm. It receives as arguments: the name of the file from which the graph is read, the coefficient d, and the error. The function then returns the vector P.
 
- Dupa ce am extras informatiile necesare  din fisier, am aflat numarul de resurse web (N)
-de pe prima pozitie a matricei fisierului. Am intializat matricea de adiacenta, A, si
-vectorul de vecini, Q, cu 0. Apoi am parcurs informatiile din fisier
- si am construit matricea de vecini si matricea de adiacenta.
-Dupa ce am terminat de construit matricea de adiacenta si vectorul de vecini,
- il aduc pe Q la o forma diagonala si calculez matricea de graduri, M, dupa
- formula: M = (inv(Q) * A)'
-Calculul vectorului P este facut pana cand norma vectorului P de la pasul
- curent si vectorul P de la pasul anterior este mai mica decat eps. Vectorul
- P s-a calculat dupa formula: R = d * M * + (1 - d) / N * ones(N, 1)
+After extracting the necessary information from the file, we found the number of web resources (N) from the first position of the file matrix. We initialized the adjacency matrix, A, and the neighbor vector, Q, with 0. Then we went through the information in the file and built the neighbor matrix and the adjacency matrix.
 
-### Algoritmul Algebraic
-Functia reprezinta o implementare a algoritmului Algebraic. Functia primeste ca
-argumente: numele fisierului din care se citeste graful, coeficientul d si 
-eroarea care apare in calculul vectorului P. Functia intoarce vectorul P.
+After finishing the construction of the adjacency matrix and neighbor vector, we bring Q to a diagonal form and calculate the degree matrix, M, using the formula:
+```
+M = (inv(Q) * A)'
+```
+The calculation of the vector P is done until the norm of the current P vector and the previous P vector is smaller than eps. The vector P is calculated using the formula:
+```
+R = d * M * P + (1 - d) / N * ones(N, 1)
+```
 
-Implementarea functiei este asemanatoare cu implementarea functiei Iterative. 
-Singura diferenta dintre cele doua functii fiind calcularea vectorului P.
+### Algebraic Algorithm
+The function represents an implementation of the Algebraic algorithm. The function receives as arguments: the name of the file from which the graph is read, the coefficient d, and the error that appears in the calculation of the P vector. The function returns the vector P.
 
-Vectorul P este calculat dupa formula: R = GramSchm(I - d * M) * (1 - d) / N * ones(N, 1),
- unde functia GramSchm() este o functie care calculeaza inversa unei matrici,
- folosind metoda Gram-Schmidt. Implementarea algoritmului Gram-Schmidt este 
-cea de la laborator.
+The implementation of the function is similar to the implementation of the Iterative function. The only difference between the two functions is the calculation of the vector P.
 
-### Gradul de apartenenta
-Functia PageRank primeste ca argumente numele unui fisier si parametrii d si
- eps. Functia afiseaza intr-un nou fisier: numarul de pagini web analizate, N,
- vectorul P calculat cu algoritmul Iterative, vectorul P calculat cu 
-algoritmul Algebraic si un clasament al celor mai importante pagini, pe prima
- coloana aflandu-se locul obtinut, pe a doua coloana numarul paginii care a 
-obtinut acest loc, iar pe ultima coloana se afla gradul de apartenenta a acestei
- pagini la multimea paginilor importante.
+The vector P is calculated using the formula:
+```
+R = GramSchm(I - d * M) * (1 - d) / N * ones(N, 1)
+```
 
-La inceputul functiei deschid fisierul primit ca parametru si citesc numarul de 
-resurse web pentru a afla cele 2 valor v1 si v2.
+where the GramSchm() function is a function that calculates the inverse of a matrix using the Gram-Schmidt method. The implementation of the Gram-Schmidt algorithm is the one from the laboratory.
 
-Dupa ce am aflat valorile necesare, am inchis fiserul pe care l-am primit ca 
-parametru si am creat fisierul de iesire. Il deschid, afisez N, afisez vectorul 
-PR1 aflat cu algoritmul Iterative, afisez vectorul calculat cu algoritmul Algebraic.
- Sortez descrescator vectorul PR1 aflat cu algoritmul Algebraic, folosinf functia sort()
- si sortez si un vector de indecsi, idx, care prezinta aranjarea elementelor din vector.
- Apartenenta este calculata intr-o functie cu acelasi nume. Functia primeste ca parametru 
+### Membership Degree
+The PageRank function receives as arguments the name of a file and the parameters d and eps. The function outputs to a new file: the number of analyzed web pages, N, the vector P calculated with the Iterative algorithm, the vector P calculated with the Algebraic algorithm, and a ranking of the most important pages, with the first column showing the obtained place, the second column showing the page number that obtained this place, and the last column showing the membership degree of this page in the set of important pages.
+
+At the beginning of the function, we open the file received as a parameter and read the number of web resources to obtain the two values v1 and v2.
+
+After obtaining the necessary values, we close the input file and create the output file. We open it, write N, write the PR1 vector obtained with the Iterative algorithm, write the vector calculated with the Algebraic algorithm. We sort the PR1 vector obtained with the Algebraic algorithm in descending order using the sort() function, and we also sort an index vector, idx, which shows the arrangement of the elements in the vector.
+
+Membership is calculated in a function with the same name. The function receives as a parameter a number x, which represents an element from the sorted PR vector, val1, and val2, and calculates the value of the membership function at point x. After finishing writing everything to the file, we close it.
 un numar x ce semnifica un element din vectorul PR sortat, val1 si val2 si care calculeaza 
 valoarea functiei membru in punctul x. Dupa ce terminam tot de afisat in fisier, il inchidem.
