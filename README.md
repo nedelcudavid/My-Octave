@@ -26,7 +26,7 @@ The vector P is calculated using the formula:
 R = GramSchm(I - d * M) * (1 - d) / N * ones(N, 1)
 ```
 
-where the GramSchm() function is a function that calculates the inverse of a matrix using the Gram-Schmidt method. The implementation of the Gram-Schmidt algorithm is the one from the laboratory.
+where the GramSchm() function is a function that calculates the inverse of a matrix using the Gram-Schmidt method. The implementation of the Gram-Schmidt algorithm is the one from the class.
 
 ### Membership Degree
 The PageRank function receives as arguments the name of a file and the parameters d and eps. The function outputs to a new file: the number of analyzed web pages, N, the vector P calculated with the Iterative algorithm, the vector P calculated with the Algebraic algorithm, and a ranking of the most important pages, with the first column showing the obtained place, the second column showing the page number that obtained this place, and the last column showing the membership degree of this page in the set of important pages.
@@ -36,5 +36,3 @@ At the beginning of the function, we open the file received as a parameter and r
 After obtaining the necessary values, we close the input file and create the output file. We open it, write N, write the PR1 vector obtained with the Iterative algorithm, write the vector calculated with the Algebraic algorithm. We sort the PR1 vector obtained with the Algebraic algorithm in descending order using the sort() function, and we also sort an index vector, idx, which shows the arrangement of the elements in the vector.
 
 Membership is calculated in a function with the same name. The function receives as a parameter a number x, which represents an element from the sorted PR vector, val1, and val2, and calculates the value of the membership function at point x. After finishing writing everything to the file, we close it.
-un numar x ce semnifica un element din vectorul PR sortat, val1 si val2 si care calculeaza 
-valoarea functiei membru in punctul x. Dupa ce terminam tot de afisat in fisier, il inchidem.
