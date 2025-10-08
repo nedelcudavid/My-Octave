@@ -1,5 +1,5 @@
 # My Octave
-## Copyright 2022 Nedelcu Andrei-David
+## Copyright 2021 Nedelcu Andrei-David
 ___________________________________________________________________________________________
 
 ### Iterative Algorithm
