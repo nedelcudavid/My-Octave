@@ -1,12 +1,13 @@
-Nedelcu Andrei David
-314CA
+# My Octave
+## Copyright 2022 Nedelcu Andrei-David
+___________________________________________________________________________________________
 
-Algoritmul Iterative
-Functia reprezinta o implementare a algoritmului Iterative, aceasta primeste
- ca argumente: numele fisierului de unde preluam graful, coeficientul d si
+### Algoritmul Iterative
+ Functia reprezinta o implementare a algoritmului Iterative, aceasta primeste 
+ca argumente: numele fisierului de unde preluam graful, coeficientul d si
 eroarea. Functia intoarce apoi vectorul P.
 
-Dupa ce am extras informatiile necesare  din fisier, am aflat numarul de resurse web (N)
+ Dupa ce am extras informatiile necesare  din fisier, am aflat numarul de resurse web (N)
 de pe prima pozitie a matricei fisierului. Am intializat matricea de adiacenta, A, si
 vectorul de vecini, Q, cu 0. Apoi am parcurs informatiile din fisier
  si am construit matricea de vecini si matricea de adiacenta.
@@ -17,7 +18,7 @@ Calculul vectorului P este facut pana cand norma vectorului P de la pasul
  curent si vectorul P de la pasul anterior este mai mica decat eps. Vectorul
  P s-a calculat dupa formula: R = d * M * + (1 - d) / N * ones(N, 1)
 
-Algoritmul Algebraic
+### Algoritmul Algebraic
 Functia reprezinta o implementare a algoritmului Algebraic. Functia primeste ca
 argumente: numele fisierului din care se citeste graful, coeficientul d si 
 eroarea care apare in calculul vectorului P. Functia intoarce vectorul P.
@@ -30,7 +31,7 @@ Vectorul P este calculat dupa formula: R = GramSchm(I - d * M) * (1 - d) / N * o
  folosind metoda Gram-Schmidt. Implementarea algoritmului Gram-Schmidt este 
 cea de la laborator.
 
-Gradul de apartenenta
+### Gradul de apartenenta
 Functia PageRank primeste ca argumente numele unui fisier si parametrii d si
  eps. Functia afiseaza intr-un nou fisier: numarul de pagini web analizate, N,
  vectorul P calculat cu algoritmul Iterative, vectorul P calculat cu 
